@@ -4,6 +4,6 @@ from ./ticker import Ticker
 
 class Trend(models.Model):
     ticker_id = models.ForeignKey(Tickers)
-    count = models.IntegerField();
+    count = models.IntegerField()
     #priceinfo_id = models.ForeignKey(PriceInfo)
     date = models.DateField(auto_now_add=True)
