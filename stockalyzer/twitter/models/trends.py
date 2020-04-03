@@ -3,7 +3,7 @@ from ./ticker import Ticker
 #from ./price_info import PriceInfo
 
 class Trend(models.Model):
-    ticker_id = models.ForeignKey(Tickers)
+    ticker_id = models.ForeignKey(Ticker)
     count = models.IntegerField()
     #priceinfo_id = models.ForeignKey(PriceInfo)
     date = models.DateField(auto_now_add=True)
