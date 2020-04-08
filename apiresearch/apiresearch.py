@@ -80,6 +80,11 @@ data = yf.download(  # or pdr.get_data_yahoo
         threads = True
     )
 
+#-----------------------------------------------------------------------------
+stock = Stock("AAPL", token = "pk_5e280dbbce2c454dad7da42f83c4b58f")# creating Stock object. No API cost.
+# gets news on stock for example AAPl. API Cost = 10
+stock_news = stock.get_news()
+print(stock_news)
 
 #--------------------------------------------------------------------------------------------
 msft = yf.Ticker("MSFT")
