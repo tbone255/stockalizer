@@ -15,6 +15,9 @@ django-filter = "*"
 gunicorn = "*"
 django-heroku = "*"
 psycopg2-binary = "*"
+iexfinance = "*"
+twittersearch = "*"
+yfinance = "*"
 
 [requires]
 python_version = "3.8"
