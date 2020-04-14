@@ -1,5 +1,5 @@
 from rest_framework import serializers 
-from models import Trend
+from ..models import Trend
 
 class TrendSerializer(serializers.ModelSerializer):
     class Meta:
