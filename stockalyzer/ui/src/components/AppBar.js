@@ -1,12 +1,9 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
-import { fade, makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
+import { AppBar, Toolbar, IconButton, Typography, InputBase, fade, makeStyles } from "@material-ui/core";
+import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
+
+// AppBar with search on the top of the page
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -63,7 +60,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar(props) {
   const classes = useStyles();
 
   return (
@@ -92,6 +89,7 @@ export default function SearchAppBar() {
                 input: classes.inputInput
               }}
               inputProps={{ "aria-label": "search" }}
+              onChange={props.handleSearch}
             />
           </div>
         </Toolbar>
