@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { AppBar, SideTabs, Header, Table, TweetCounts } from "./components";
+import { AppBar, SideTabs, Header, Table, TweetCounts, Graph } from "./components";
 import { Grid } from '@material-ui/core/';
 import axios from "axios";
 
@@ -53,13 +53,13 @@ export default class extends Component {
   }
 
   render() {
-    return (
-      <Fragment>
+    return ( <Fragment>
+       
       <AppBar handleSearch={this.handleSearch} />
 
       <Grid container>
 
-        <Grid item sm={2}>
+        <Grid sm={2}>
           <SideTabs tickers={this.state.tickers} tabChange={this.tabChange} />
         </Grid>
 
@@ -69,9 +69,12 @@ export default class extends Component {
           <Table yesterclose={this.state.yesterclose} first_mention={this.state.first_mention} last_price={this.state.last_price} last_volume={this.state.last_volume} />
         </Grid>
 
+        <Grid style={{padding: 20}}>
+          <Graph />
+        </Grid>
+
       </Grid>
-      {this.state.search}
-      </Fragment>
-    );
+      
+    </Fragment>);
   }
 }
