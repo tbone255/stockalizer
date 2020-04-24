@@ -18,18 +18,20 @@ import time
 
 class Command(BaseCommand):
     help = 'create the trends for each ticker'
-    iex_token = os.getenv('IEX_TOKEN')
-    t_access_token = os.getenv('T_ACCESS_TOKEN')
-    t_access_secret_token = os.getenv('T_ACCESS_TOKEN_SECRET')
-    t_consumer_key = os.getenv('T_CONSUMER_KEY')
-    t_consumer_secret_key = os.getenv('T_CONSUMER_SECRET')
+
+    def __init__(self):
+        self.iex_token = os.getenv('IEX_TOKEN')
+        self.t_access_token = os.getenv('T_ACCESS_TOKEN')
+        self.t_access_token_secret = os.getenv('T_ACCESS_TOKEN_SECRET')
+        self.t_consumer_key = os.getenv('T_CONSUMER_KEY')
+        self.t_consumer_secret = os.getenv('T_CONSUMER_SECRET')
 
     def get_logo(self,symbol):
-        symbol = Stock(symbol, token=iex_token)
+        symbol = Stock(symbol, token=self.iex_token)
         return symbol.get_logo() #return dict / df of url to the logo of company
     
     def get_stock_stats(self, symbol):
-        symbol = Stock(symbol, token=iex_token)
+        symbol = Stock(symbol, token=self.iex_token)
         """
         {'week52change': 0.372464,'week52high': 327.85,'week52low': 170.27,
          'marketcap': 1148432235600,'employees': 137000,'day200MovingAvg': 251.36,
@@ -45,7 +47,7 @@ class Command(BaseCommand):
         return stock.get_key_stats() # only possible with Stock object.
 
     def get_stock_info(self, symbol):
-        symbol = Stock(symbol, token=iex_token)
+        symbol = Stock(symbol, token=self.iex_token)
         """ THIS IS WHAT THE OUTPUT LOOKS LIKE
         {'symbol': 'AAPL', 'companyName': 'Apple, Inc.', 'exchange': 'NASDAQ', 
          'industry': 'Telecommunications Equipment', 'website': 'http://www.apple.com', 
@@ -68,7 +70,7 @@ class Command(BaseCommand):
         """
         return symbol.get_company()
     def get_news(self, symbol):
-        stock = Stock(symbol, token=iex_token)# creating Stock object. No API cost.
+        stock = Stock(symbol, token=self.iex_token)# creating Stock object. No API cost.
         # gets news on stock for example AAPl. API Cost = 10
         return stock.get_news()    
     
@@ -82,8 +84,8 @@ class Command(BaseCommand):
         tso.set_language('en') 
         tso.set_since(y)
         tso.set_until(x)
-        ts = TwitterSearch(consumer_key= t_consumer_key, consumer_secret = t_consumer_secret,
-                        access_token = t_access_token, access_token_secret = t_access_token_secret)
+        ts = TwitterSearch(consumer_key= self.t_consumer_key, consumer_secret = self.t_consumer_secret,
+                        access_token = self.t_access_token, access_token_secret = self.t_access_token_secret)
         for e in Ticker.objects.all():           
             priceinfo_obj = PriceInfo.objects.create(yesterclose = 0, first_mention = 0, last_price = 0, last_volume = 0)
             symbol = "$"+ e.symbol
@@ -119,6 +121,8 @@ class Command(BaseCommand):
             trend_obj = Trend.objects.create(ticker_id = e, count = numoftweets,
                                                  priceinfo_id = priceinfo_obj)
             for article in news:
+                if len(article['url']) > 200 or len(article['headline']) > 200:
+                    continue
                 new_object = News.objects.create(url = article["url"], title = article["headline"] )
                 newtrade_obj = NewsTrend.objects.create(trends_id = trend_obj, news_id = new_object)
             print("Stock: "+e.symbol+" #Tweets: "+str(numoftweets)+" #news: "+str(len(news)))

@@ -13,7 +13,6 @@ import pandas as pd
 
 class Command(BaseCommand):
     help = 'create the tickers in the database'
-    token = os.getenv('IEX_TOKEN')
 
 #    def add_arguments(self, parser):
 #        parser.add_argument('poll_ids', nargs='+', type=int)
@@ -21,10 +20,17 @@ class Command(BaseCommand):
     
         
     def handle(self, *args, **options):
-        token = iexcredentials.iextoken       
+        token = os.getenv('IEX_TOKEN')
         df = get_symbols(token = token)   
 
+        ticker_id = 1
+        start_at_id = 124
+
         for i in range(len(df)):
+            if ticker_id < start_at_id:
+                ticker_id += 1
+                continue
+            
             print("Symbol: "+df[i]['symbol'] + "\tName: "+df[i]['name'])
             Ticker.objects.create(symbol=df[i]['symbol'], company=df[i]['name'])
 
