@@ -5,5 +5,5 @@ from .price_info import PriceInfo
 class Trend(models.Model):
     ticker_id = models.ForeignKey(Ticker, on_delete=models.CASCADE)
     count = models.IntegerField()
-    priceinfo_id = models.ForeignKey(PriceInfo, on_delete=models.CASCADE)
+    priceinfo_id = models.ForeignKey(PriceInfo, null=True, on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
