@@ -1,3 +1,5 @@
+from iexfinance.stocks import Stock
+import os
 from rest_framework import filters, viewsets 
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -27,3 +29,7 @@ class TickerViewSet(viewsets.ModelViewSet):
         return Response(data)
 
         
+    @action(detail=True, methods=['get'])
+    def price_info(self, request, pk=None):
+        stock = Stock(self.get_object().symbol, token=os.getenv('IEX_TOKEN'))
+        return Response(stock.get_key_stats())
