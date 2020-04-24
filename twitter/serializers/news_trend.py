@@ -11,3 +11,6 @@ class NewsTrendSerializer(serializers.ModelSerializer):
 class FullNewsTrendSerializer(serializers.Serializer):
     trend = BasicTrendSerializer(source='trends_id')
     news = BasicNewsSerializer(source='news_id')
+
+class NewsTrendNewsSerializer(serializers.Serializer):
+    news = BasicNewsSerializer(source='news_id')
