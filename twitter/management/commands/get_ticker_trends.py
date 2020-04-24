@@ -86,7 +86,12 @@ class Command(BaseCommand):
         tso.set_until(x)
         ts = TwitterSearch(consumer_key= self.t_consumer_key, consumer_secret = self.t_consumer_secret,
                         access_token = self.t_access_token, access_token_secret = self.t_access_token_secret)
+        ticker_id = 1
+        start_at_ticker_id = int(os.getenv('START_AT', -1))
         for e in Ticker.objects.all():           
+            if ticker_id < start_at_ticker_id:
+                ticker_id += 1
+                continue
             priceinfo_obj = PriceInfo.objects.create(yesterclose = 0, first_mention = 0, last_price = 0, last_volume = 0)
             symbol = "$"+ e.symbol
             #numoftweets = self.get_number_of_tweets(symbol)

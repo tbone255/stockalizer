@@ -24,7 +24,7 @@ class Command(BaseCommand):
         df = get_symbols(token = token)   
 
         ticker_id = 1
-        start_at_id = 124
+        start_at_ticker_id = int(os.getenv('START_AT', -1))
 
         for i in range(len(df)):
             if ticker_id < start_at_id:
