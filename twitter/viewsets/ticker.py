@@ -21,7 +21,7 @@ class TickerViewSet(viewsets.ModelViewSet):
             news = NewsTrend.objects.filter(trends_id=trend.id)
             news_serializer = NewsTrendNewsSerializer(news, many=True)
             final = BasicTrendSerializer(trend).data
-            final['news'] = [news_serializer.data]
+            final['news'] = news_serializer.data
             data.append(final)
 
         return Response(data)
