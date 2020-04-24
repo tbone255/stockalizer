@@ -14,7 +14,7 @@ class TrendViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'])
     def top(self, request):
         yesterday = date.today()
-        yesterday.replace(day=yesterday.day-1)
+        yesterday = yesterday.replace(day=yesterday.day-1)
         trends = Trend.objects.filter(date=yesterday).order_by('count')[:5]
         serializer = TrendSerializer(trends, many=True)
         return Response(serializer.data)
