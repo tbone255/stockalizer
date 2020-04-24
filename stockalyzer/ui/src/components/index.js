@@ -3,7 +3,7 @@ import SideTabs from "./SideTabs";
 import Header from "./Header"
 import Table from "./Table"
 import TweetCounts from "./TweetCounts"
-import Graph from "./Graph"
+import CandleChart from "./CandleChart"
 import NewsCard from "./NewsCard"
 
-export { AppBar, SideTabs, Header, Table, TweetCounts, Graph, NewsCard };
+export { AppBar, SideTabs, Header, Table, TweetCounts, CandleChart, NewsCard };

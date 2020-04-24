@@ -7,6 +7,10 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+/**
+ * The media card that displays news information
+ * Template Source: https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/cards/ImgMediaCard.js
+ */
 
 const useStyles = makeStyles({
   root: {
@@ -19,7 +23,7 @@ export default function MediaCard(props) {
   const classes = useStyles();
 
   return (
-    <div style={{paddingLeft: 140}}>
+    <div style={{paddingTop:20}}>
     <Card className={classes.root}>
       <CardActionArea>
         <CardContent height="200">
@@ -27,7 +31,7 @@ export default function MediaCard(props) {
             News
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {props.titles[props.index]}
+            {props.news.title}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -38,7 +42,7 @@ export default function MediaCard(props) {
         <Button size="small" color="primary" onClick={props.handleNext} disabled={props.nextDisabled}>
           Next
         </Button>
-        <Button size="small" color="primary" component={Link} href={props.urls[props.index]}>
+        <Button size="small" color="primary" component={Link} href={props.news.url} disabled={props.linkDisabled}>
           Learn More
         </Button>
       </CardActions>

@@ -3,7 +3,10 @@ import { AppBar, Toolbar, IconButton, Typography, InputBase, fade, makeStyles } 
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
-// AppBar with search on the top of the page
+/**
+ * AppBar with search on the top of the page
+ * Template Source: https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/app-bar/SearchAppBar.js
+ */
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -62,7 +65,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function SearchAppBar(props) {
   const classes = useStyles();
-
+  
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -89,8 +92,11 @@ export default function SearchAppBar(props) {
                 input: classes.inputInput
               }}
               inputProps={{ "aria-label": "search" }}
+              onKeyDown={props.handleSearch}
               onChange={props.handleSearch}
-            />
+              onClick={props.handleSearch}
+              onBlur={props.handleSearch}
+              style={{color: props.color}}/>
           </div>
         </Toolbar>
       </AppBar>

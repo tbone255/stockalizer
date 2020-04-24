@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { makeStyles, Table, TableBody, TableCell, TableContainer, TableRow, Paper } from '@material-ui/core';
 
 // table to display the tweet count
@@ -13,19 +13,24 @@ export default function SimpleTable(props) {
   const classes = useStyles();
 
   return (
-    <Fragment>
-    <TableContainer component={Paper} style={{backgroundColor: "#81DAF5"}}>
-      <Table className={classes.table} aria-label="simple table">
+    <div style={{paddingTop:20, paddingBottom:20}}>
+    <TableContainer 
+      component={Paper} 
+      style={{backgroundColor: "#81DAF5"}}>
+
+      <Table 
+        className={classes.table} 
+        aria-label="simple table">
+          
         <TableBody>
-            <TableRow > 
+            <TableRow style={{width: 1}} > 
                 <TableCell align="left"><b>Tweet Count</b></TableCell>
                 <TableCell align="right"><b>{props.count}</b></TableCell>
             </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
-    <div style={{padding: 20}}></div>
-    </Fragment>
+    </div>
   );
 }
 

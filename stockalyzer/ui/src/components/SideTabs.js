@@ -2,7 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles, Tabs, Tab, Typography, Box } from "@material-ui/core";
 
-// the tabs on the side of the page with a list of stocks
+/**
+ * The tabs on the side of the page with a list of stocks
+ * Template Source: https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/tabs/VerticalTabs.js
+ */
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -31,8 +34,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
-    display: "flex",
-    height: 800
+    display: "fixed",
+    height: 800,
+    width: 270
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`
