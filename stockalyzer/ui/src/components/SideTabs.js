@@ -35,7 +35,6 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: "fixed",
-    height: 800,
     width: 270
   },
   tabs: {
@@ -48,8 +47,13 @@ export default function VerticalTabs(props) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
     props.tabChange(newValue);
+    if (props.index === 0){
+      setValue(0);
+    }
+    else{
+      setValue(newValue);
+    }
   };
 
   return (

@@ -7,7 +7,7 @@ const options = {
     height: 350
   },
   title: {
-    text: 'CandleStick Chart',
+    text: 'OHLC',
     align: 'left'
   },
   xaxis: {

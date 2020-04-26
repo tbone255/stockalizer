@@ -74,7 +74,8 @@ export default function SearchAppBar(props) {
             edge="start"
             className={classes.menuButton}
             color="inherit"
-            aria-label="open drawer"
+            
+            onClick={props.menuHandler}
           >
             <MenuIcon />
           </IconButton>

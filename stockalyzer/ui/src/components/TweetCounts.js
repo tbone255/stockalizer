@@ -27,6 +27,10 @@ export default function SimpleTable(props) {
                 <TableCell align="left"><b>Tweet Count</b></TableCell>
                 <TableCell align="right"><b>{props.count}</b></TableCell>
             </TableRow>
+            <TableRow style={{width: 1}} > 
+                <TableCell align="left"><b>{props.change}%</b></TableCell>
+                <TableCell align="right"><b>Change from Yesterday</b></TableCell>
+            </TableRow>
         </TableBody>
       </Table>
     </TableContainer>

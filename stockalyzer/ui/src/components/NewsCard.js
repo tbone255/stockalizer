@@ -14,8 +14,8 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
-    width: 345,
+    maxWidth: 600,
+    width: 600,
   }
 });
 
@@ -23,7 +23,7 @@ export default function MediaCard(props) {
   const classes = useStyles();
 
   return (
-    <div style={{paddingTop:20}}>
+    <div style={{paddingTop:20, paddingLeft: 20}}>
     <Card className={classes.root}>
       <CardActionArea>
         <CardContent height="200">
