@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/%7Bstockalizer%7D/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/%7Bstockalizer%7D/static/js/main.a58d6499.chunk.js",
+    "main.js.map": "/%7Bstockalizer%7D/static/js/main.a58d6499.chunk.js.map",
+    "runtime-main.js": "/%7Bstockalizer%7D/static/js/runtime-main.ea10958f.js",
+    "runtime-main.js.map": "/%7Bstockalizer%7D/static/js/runtime-main.ea10958f.js.map",
+    "static/js/2.c579a3fc.chunk.js": "/%7Bstockalizer%7D/static/js/2.c579a3fc.chunk.js",
+    "static/js/2.c579a3fc.chunk.js.map": "/%7Bstockalizer%7D/static/js/2.c579a3fc.chunk.js.map",
+    "index.html": "/%7Bstockalizer%7D/index.html",
+    "precache-manifest.ed1f603918140c50c813d9430036d3ae.js": "/%7Bstockalizer%7D/precache-manifest.ed1f603918140c50c813d9430036d3ae.js",
+    "service-worker.js": "/%7Bstockalizer%7D/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/%7Bstockalizer%7D/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.c579a3fc.chunk.js.LICENSE.txt": "/%7Bstockalizer%7D/static/js/2.c579a3fc.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ea10958f.js",
+    "static/js/2.c579a3fc.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.a58d6499.chunk.js"
+  ]
+}
