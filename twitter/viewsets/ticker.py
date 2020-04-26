@@ -4,7 +4,7 @@ from rest_framework import filters, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 import yfinance
-
+import numpy as np
 from ..models import NewsTrend, Ticker, Trend
 from ..serializers import NewsTrendNewsSerializer, BasicTrendSerializer, TickerSerializer
 
@@ -38,16 +38,16 @@ class TickerViewSet(viewsets.ModelViewSet):
     #helper function for graph data
     def generate_technical_indicators(self, data):
          #Technical Indicators: Moving Average
-        data["MA_5"] = data["Close"].rolling(window = 5).mean()
-        data["MA_15"] = data["Close"].rolling(window = 15).mean()
+        data["MA_5"] = np.round(data["Close"].rolling(window = 5).mean(), 2)
+        data["MA_15"] = np.round(data["Close"].rolling(window = 15).mean(), 2)
         
         #Technical Indicators: VWAP
-        data["VWAP"] = (data["Volume"]*(data["High"]+data["Low"])/2).cumsum() / data["Volume"].cumsum()
+        data["VWAP"] = np.round((data["Volume"]*(data["High"]+data["Low"])/2).cumsum() / data["Volume"].cumsum(), 2)
         
         #Tecnical Indicators: Bollinger Bands
-        data["BB_U"] = data["MA_15"] + (data['MA_15'].rolling(15).std()*2)
-        data["BB_L"] = data["MA_15"] - (data['MA_15'].rolling(15).std()*2)
-        data["BB_M"] = data["MA_15"]
+        data["BB_U"] = np.round(data["MA_15"] + (data['MA_15'].rolling(15).std()*2), 2)
+        data["BB_L"] = np.round(data["MA_15"] - (data['MA_15'].rolling(15).std()*2), 2)
+        data["BB_M"] = np.round(data["MA_15"], 2)
         data = data.dropna()       
         return data
     
