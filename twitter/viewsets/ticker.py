@@ -59,6 +59,6 @@ class TickerViewSet(viewsets.ModelViewSet):
         data = data.reset_index()
         data["Date"] = data['Date'].dt.date
         data['Date'] = data['Date'].astype('str')
-        data = generate_technical_indicators(data)
+        data = self.generate_technical_indicators(data)
         data = data.to_dict()
         return Response(data)
