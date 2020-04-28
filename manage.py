@@ -4,6 +4,7 @@ import os
 import sys
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
+
 #root_path = os.path.abspath(os.path.split(__file__)[0])
 #print(root_path)
 #sys.path.insert(0, os.path.join(root_path, 'stockalyzer'))

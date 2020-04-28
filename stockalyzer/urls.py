@@ -20,6 +20,8 @@ from rest_framework.routers import DefaultRouter
 from twitter.viewsets import (NewsViewSet, NewsTrendViewSet, PriceInfoViewSet,
     TickerViewSet, TrendViewSet)
 
+from django.views.generic import TemplateView
+
 router = DefaultRouter()
 router.register(r'news', NewsViewSet)
 router.register(r'news-trends', NewsTrendViewSet)
@@ -30,4 +32,5 @@ router.register(r'trends', TrendViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('', TemplateView.as_view(template_name='index.html'))
 ]

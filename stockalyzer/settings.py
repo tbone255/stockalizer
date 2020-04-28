@@ -62,7 +62,9 @@ ROOT_URLCONF = 'stockalyzer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'ui/build')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
