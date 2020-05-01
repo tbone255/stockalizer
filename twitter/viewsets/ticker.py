@@ -62,3 +62,5 @@ class TickerViewSet(viewsets.ModelViewSet):
         data = self.generate_technical_indicators(data)
         data = data.to_dict()
         return Response(data)
+    if __name__ == "__main__":
+        print("x")

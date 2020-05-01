@@ -30,8 +30,12 @@ class Command(BaseCommand):
         symbol = Stock(symbol, token=self.iex_token)
         return symbol.get_logo() #return dict / df of url to the logo of company
     
-    def get_stock_stats(self, symbol):
+    def perc_change(self, data):
+        return np.round( ((data.iloc[len(data)-1, 4]-data.iloc[len(data)-2, 4]) / data.iloc[len(data)-2, 4])*100.0 , 2)
+
+    def get_stock_stats(self, symbol, data):
         symbol = Stock(symbol, token=self.iex_token)
+        symbol["changeSinceYesterday"] = perc_change(data)
         """
         {'week52change': 0.372464,'week52high': 327.85,'week52low': 170.27,
          'marketcap': 1148432235600,'employees': 137000,'day200MovingAvg': 251.36,
@@ -93,7 +97,6 @@ class Command(BaseCommand):
                 ticker_id += 1
                 continue
             symbol = "$"+ e.symbol
-            #numoftweets = self.get_number_of_tweets(symbol)
             tweets = []
             result = 0             
             try:
@@ -114,8 +117,7 @@ class Command(BaseCommand):
             except TwitterSearchException as e:         
                 result = -1
                 print(e)
-                
-           
+                        
             numoftweets = result
             if numoftweets == -1:
                 print("Error occured. Sleeping for 15 minutes.")
