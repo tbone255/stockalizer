@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    style="padding-top: 20px; padding-left: 20px;"
+  >
+    <div
+      class="MuiPaper-root MuiCard-root makeStyles-root-1 MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <button
+        class="MuiButtonBase-root MuiCardActionArea-root"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="MuiCardContent-root"
+          height="200"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+          >
+            News
+          </h2>
+          <p
+            class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+          >
+            Fetching the News
+          </p>
+        </div>
+        <span
+          class="MuiCardActionArea-focusHighlight"
+        />
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+      <div
+        class="MuiCardActions-root MuiCardActions-spacing"
+        style="padding-top: 50px;"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-textSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Back
+          </span>
+        </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-textSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Next
+          </span>
+        </button>
+        <a
+          aria-disabled="true"
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-textSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled MuiTypography-colorPrimary"
+          href="Fake News"
+          role="button"
+          tabindex="-1"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Learn More
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

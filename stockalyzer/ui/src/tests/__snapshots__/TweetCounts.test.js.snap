@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    style="padding-top: 20px; padding-bottom: 20px;"
+  >
+    <div
+      class="MuiPaper-root MuiTableContainer-root MuiPaper-elevation1 MuiPaper-rounded"
+      style="background-color: rgb(129, 218, 245);"
+    >
+      <table
+        aria-label="simple table"
+        class="MuiTable-root makeStyles-table-1"
+      >
+        <tbody
+          class="MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root"
+            style="width: 1px;"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+            >
+              <b>
+                Tweet Count
+              </b>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+            >
+              <b>
+                10000
+              </b>
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root"
+            style="width: 1px;"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+            >
+              <b>
+                %
+              </b>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+            >
+              <b>
+                Change from Yesterday
+              </b>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;

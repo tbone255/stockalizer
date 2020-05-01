@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="makeStyles-root-1"
+  >
+    <div
+      aria-label="Vertical tabs example"
+      class="MuiTabs-root makeStyles-tabs-2 MuiTabs-vertical"
+    >
+      <div
+        class="MuiTabs-scrollable"
+        style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+      />
+      <div
+        class="MuiTabs-scroller MuiTabs-scrollable"
+        style="margin-bottom: 0px;"
+      >
+        <div
+          class="MuiTabs-flexContainer MuiTabs-flexContainerVertical"
+          role="tablist"
+        />
+        <span
+          class="PrivateTabIndicator-root-14 PrivateTabIndicator-colorSecondary-16 MuiTabs-indicator PrivateTabIndicator-vertical-17"
+          style="top: 0px; height: 0px;"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

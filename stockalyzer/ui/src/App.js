@@ -331,22 +331,24 @@ export default class extends Component {
         .then(res => {
           const topTrends = res.data;
           var topTickers = [];
-
-          axios.all([
-            axios.get("/api/tickers/"+topTrends[0].ticker_id),
-            axios.get("/api/tickers/"+topTrends[1].ticker_id),
-            axios.get("/api/tickers/"+topTrends[2].ticker_id),
-            axios.get("/api/tickers/"+topTrends[3].ticker_id),
-            axios.get("/api/tickers/"+topTrends[4].ticker_id)
-          ]).then(res => {
-            topTickers.push(res[0].data);
-            topTickers.push(res[1].data);
-            topTickers.push(res[2].data);
-            topTickers.push(res[3].data);
-            topTickers.push(res[4].data);
-            this.setState({tickers: topTickers});
-            this.updatePage(topTickers[0])
-          })
+          
+          if (topTickers.length != 0){
+            axios.all([
+              axios.get("/api/tickers/"+topTrends[0].ticker_id),
+              axios.get("/api/tickers/"+topTrends[1].ticker_id),
+              axios.get("/api/tickers/"+topTrends[2].ticker_id),
+              axios.get("/api/tickers/"+topTrends[3].ticker_id),
+              axios.get("/api/tickers/"+topTrends[4].ticker_id)
+            ]).then(res => {
+              topTickers.push(res[0].data);
+              topTickers.push(res[1].data);
+              topTickers.push(res[2].data);
+              topTickers.push(res[3].data);
+              topTickers.push(res[4].data);
+              this.setState({tickers: topTickers});
+              this.updatePage(topTickers[0])
+            })
+          }
     });
   }
 // ----------------------------------------------------------------------------------------------------
