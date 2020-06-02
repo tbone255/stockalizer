@@ -1,5 +1,5 @@
-# stockalizer
-stock stuff
+# stockalyzer
+Stockalyzer uses Twitter's API to see what stocks people are talking about most, and reports that information back along with news, price info, and technical indicators for those stocks.
 
 
 # Instructions for setting up
